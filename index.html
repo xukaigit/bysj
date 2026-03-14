@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>毕设提交 · 环形进度 + 隐私面板</title>
+    <title>开题报告提交</title>
     <!-- 引入 Chart.js 轻量图表库 -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
     <style>
@@ -532,10 +532,10 @@
     <!-- 公共提交区 (学生使用) -->
     <div class="public-submit">
         <h2>学生自助提交</h2>
-        <div class="public-desc">🔹 输入你的完整姓名 (与分组名单一致) 并点击提交，即可登记毕设完成。</div>
+        <div class="public-desc">🔹 输入你的完整姓名并点击提交，即可登记完成。</div>
         <div class="submit-form">
-            <input type="text" id="studentNameInput" placeholder="例如：陈思睿" autocomplete="off">
-            <button id="submitNameBtn">📤 提交我的毕设</button>
+            <input type="text" id="studentNameInput" placeholder="例如：徐凯晟" autocomplete="off">
+            <button id="submitNameBtn">📤 提交我的开题报告</button>
         </div>
         <div class="submit-message" id="submitMessage">✨ 等待输入...</div>
         <div class="public-summary">目前已有 <span id="publicSubmittedCount">0</span> 名同学提交</div>
@@ -544,8 +544,8 @@
         <div class="chart-row" id="chartRow">
             <!-- 第一组 -->
             <div class="chart-card">
-                <h4>第一组 · 算法</h4>
-                <div class="teacher-name">张建明 教授</div>
+                <h4>第一组 </h4>
+                <div class="teacher-name">周小四</div>
                 <div class="chart-container">
                     <canvas id="chartGroup0"></canvas>
                 </div>
@@ -553,8 +553,8 @@
             </div>
             <!-- 第二组 -->
             <div class="chart-card">
-                <h4>第二组 · 系统</h4>
-                <div class="teacher-name">李敏华 副教授</div>
+                <h4>第二组 </h4>
+                <div class="teacher-name">廖家英</div>
                 <div class="chart-container">
                     <canvas id="chartGroup1"></canvas>
                 </div>
@@ -562,8 +562,8 @@
             </div>
             <!-- 第三组 -->
             <div class="chart-card">
-                <h4>第三组 · 数据</h4>
-                <div class="teacher-name">王思睿 讲师</div>
+                <h4>第三组</h4>
+                <div class="teacher-name">袁泽宇</div>
                 <div class="chart-container">
                     <canvas id="chartGroup2"></canvas>
                 </div>
@@ -605,35 +605,35 @@
 <script>
     (function() {
         // ---------- 密码 ----------
-        const PRIVATE_PASSWORD = "biyesheji2025";
+        const PRIVATE_PASSWORD = "88888888";
 
         // ---------- 学生名单 (与之前一致) ----------
         const STUDENT_LIST = [
-            { name: "陈思睿", groupIdx: 0, teacher: "张建明 教授" },
-            { name: "林小冉", groupIdx: 0, teacher: "张建明 教授" },
-            { name: "郑宇阳", groupIdx: 0, teacher: "张建明 教授" },
-            { name: "唐雅琴", groupIdx: 0, teacher: "张建明 教授" },
-            { name: "沈昊轩", groupIdx: 0, teacher: "张建明 教授" },
-            { name: "陆一鸣", groupIdx: 0, teacher: "张建明 教授" },
-            { name: "赵远卓", groupIdx: 1, teacher: "李敏华 副教授" },
-            { name: "许冬青", groupIdx: 1, teacher: "李敏华 副教授" },
-            { name: "何沐阳", groupIdx: 1, teacher: "李敏华 副教授" },
-            { name: "苏晚亭", groupIdx: 1, teacher: "李敏华 副教授" },
-            { name: "高天宇", groupIdx: 1, teacher: "李敏华 副教授" },
-            { name: "秦书瑶", groupIdx: 1, teacher: "李敏华 副教授" },
-            { name: "魏新宇", groupIdx: 2, teacher: "王思睿 讲师" },
-            { name: "姜南希", groupIdx: 2, teacher: "王思睿 讲师" },
-            { name: "程一凡", groupIdx: 2, teacher: "王思睿 讲师" },
-            { name: "曾欣然", groupIdx: 2, teacher: "王思睿 讲师" },
-            { name: "崔远航", groupIdx: 2, teacher: "王思睿 讲师" },
-            { name: "白雨棠", groupIdx: 2, teacher: "王思睿 讲师" }
+            { name: "徐凯晟", groupIdx: 0, teacher: "周小四" },
+            { name: "胡睿佳", groupIdx: 0, teacher: "周小四" },
+            { name: "吴雅雯", groupIdx: 0, teacher: "周小四" },
+            { name: "吴帆", groupIdx: 0, teacher: "周小四" },
+            { name: "陆映含", groupIdx: 0, teacher: "周小四" },
+            { name: "贾茹袁奕", groupIdx: 0, teacher: "周小四" },
+            { name: "于丽娜", groupIdx: 1, teacher: "廖家英" },
+            { name: "徐浩文", groupIdx: 1, teacher: "廖家英" },
+            { name: "莫雨", groupIdx: 1, teacher: "廖家英" },
+            { name: "陈欣宇", groupIdx: 1, teacher: "廖家英" },
+            { name: "成鑫艺", groupIdx: 1, teacher: "廖家英" },
+            { name: "金文杰", groupIdx: 1, teacher: "廖家英" },
+            { name: "迟阳", groupIdx: 2, teacher: "袁泽宇" },
+            { name: "宗文豪", groupIdx: 2, teacher: "袁泽宇" },
+            { name: "段雨瑞", groupIdx: 2, teacher: "袁泽宇" },
+            { name: "解静茹", groupIdx: 2, teacher: "袁泽宇" },
+            { name: "韩超", groupIdx: 2, teacher: "袁泽宇" },
+            { name: "徐好", groupIdx: 2, teacher: "袁泽宇" }
         ];
 
         // 分组结构
         let groups = [
-            { groupName: "第一组 · 算法", teacher: "张建明 教授", students: [] },
-            { groupName: "第二组 · 系统", teacher: "李敏华 副教授", students: [] },
-            { groupName: "第三组 · 数据", teacher: "王思睿 讲师", students: [] }
+            { groupName: "第一组", teacher: "周小四", students: [] },
+            { groupName: "第二组", teacher: "廖家英", students: [] },
+            { groupName: "第三组", teacher: "袁泽宇", students: [] }
         ];
 
         function buildGroupsFromList() {
@@ -883,7 +883,7 @@
 
             foundStudent.submitted = true;
             saveToStorage();
-            submitMessage.innerText = `✅ 提交成功！${foundStudent.name}，你的毕设已登记。`;
+            submitMessage.innerText = `✅ 提交成功！${foundStudent.name}，你的开题报告已登记。`;
             studentNameInput.value = '';
 
             updatePublicCount();
@@ -892,7 +892,7 @@
             if (isUnlocked) {
                 renderPrivateGroups();
             } else {
-                liveNotify.innerText = `👤 学生 ${foundStudent.name} 刚刚提交了毕设。`;
+                liveNotify.innerText = `👤 学生 ${foundStudent.name} 刚刚提交了开题报告。`;
             }
         }
 
